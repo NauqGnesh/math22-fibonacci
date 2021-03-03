@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<hhtl>
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+			integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="{{ url_for('static',filename='style.css') }}"
+		/>
+		<title>Fibonacci</title>
+	</head>
+	<nav class="navbar navbar-light bg-light">
+		<div>
+			<a href="{{ url_for('homepage') }}">Calculate</a>
+		</div>
+		<div>
+			<a
+				href="https://colab.research.google.com/drive/1N2ESkTcsf1Aid7nZPB4mH2bFrPykuASU?usp=sharing"
+				target="_blank"
+				>Benchmarks</a
+			>
+		</div>
+	</nav>
+	<body>
+		<div id="main" class="container">
+			<div>
+				<h1>Nth Term</h1>
+				<form action="/term" method="POST">
+					<input
+						name="num"
+						placeholder="F(n) -> x"
+						type="number"
+						min="1"
+						max="1000000"
+					/>
+					<button type="submit" class="btn btn-outline-dark">GO!</button>
+				</form>
+			</div>
+			<div>
+				<h1>Sum of fib</h1>
+				<form action="/sum" method="POST">
+					<input
+						name="num"
+						placeholder="n = a + b + c + ..."
+						type="number"
+						min="1"
+						max="9999999999999999999999999999999999999999999999999999"
+					/>
+					<button type="submit" class="btn btn-outline-dark">GO!</button>
+				</form>
+			</div>
+			<div>
+				<h1>Which Term?</h1>
+				<form action="/which" method="POST">
+					<input
+						name="num"
+						placeholder="F(x) -> n"
+						type="number"
+						min="1"
+						max="9999999999999999999999999999999999999999999999999999"
+					/>
+					<button type="submit" class="btn btn-outline-dark">GO!</button>
+				</form>
+			</div>
+			<div>
+				<h1>Is Fib?</h1>
+				<form action="/is_fib" method="POST">
+					<input
+						name="num"
+						placeholder="n"
+						type="number"
+						min="1"
+						max="9999999999999999999999999999999999999999999999999999"
+					/>
+					<button type="submit" class="btn btn-outline-dark">GO!</button>
+				</form>
+			</div>
+		</div>
+	</body>
+</hhtl>

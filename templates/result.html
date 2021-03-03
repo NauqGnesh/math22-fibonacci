@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<hhtl>
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+			integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="{{ url_for('static',filename='style.css') }}"
+		/>
+		<title>Fibonacci</title>
+	</head>
+	<body>
+		<nav class="navbar navbar-light bg-light">
+			<div>
+				<a href="{{ url_for('homepage') }}">Calculate</a>
+			</div>
+			<div>
+				<a href="{{ url_for('homepage') }}">Benchmarks</a>
+			</div>
+		</nav>
+		<div id="result_after" class="container">
+			<h1>{{ message }}</h1>
+			{% block content %} {% if output is string %}
+			<h1>{{ output }}</h1>
+			{% elif output is iterable%} {% if output | length > 1 %}
+			<h1>{{ output[0] }}</h1>
+			<h1>Or</h1>
+			<h1>{{ output[1] }}</h1>
+			{% endif %} {% else %}
+			<h1>{{ output }}</h1>
+			{% endif %} {% endblock content %}
+			<a href="{{ url_for('homepage') }}">
+				<button class="btn btn-outline-dark">Back</button>
+			</a>
+		</div>
+	</body>
+</hhtl>
