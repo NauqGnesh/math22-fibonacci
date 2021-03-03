@@ -23,7 +23,7 @@ def sum():
     u_input = request.form.get("num")
     if not u_input:
         return redirect("/")
-    #  number = parse(solve(int(u_input)))
+   #  number = parse(solve(int(u_input)))
     number = parse_multiple(solve_all_combinations(int(u_input)))
     message = f'Combinations for {u_input}:'
     return render_template("result.html", output = number, message=message)
