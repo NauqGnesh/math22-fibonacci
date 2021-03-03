@@ -50,7 +50,7 @@ def is_fib_route():
         message += "a Fibonacci number"
     else:
         message += "not a Fibonacci number"
-    return render_template("result.html", message = message)
+    return render_template("result.html", message = message, output="")
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8080, debug=True)
