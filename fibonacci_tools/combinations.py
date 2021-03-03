@@ -20,7 +20,7 @@ def solve(num):
 
 def solve_all_combinations(num):
     if (num <= 1):
-        return [num]
+        return [[num]]
     combinations, list_of_fib = [], fib_list(num)
     while len(list_of_fib) > 0:
         result = solve_helper(num, list_of_fib)

@@ -17,32 +17,49 @@
 			type="text/css"
 			href="{{ url_for('static',filename='style.css') }}"
 		/>
-		<title>What The Fib?</title>
+		<title>fib dec</title>
 	</head>
 	<body>
 		<nav class="navbar navbar-light bg-light">
 			<div>
-				<a href="{{ url_for('homepage') }}">Calculate</a>
+				<a href="{{ url_for('homepage') }}">
+					<img
+						src="{{ url_for('static', filename='LogoMark.svg') }}"
+						alt="homepage logo"
+						width="40px"
+					/>
+				</a>
 			</div>
 			<div>
 				<a href="{{ url_for('homepage') }}">Benchmarks</a>
 			</div>
 		</nav>
 		<div id="result_after" class="container">
-			<h1>{{ message }}</h1>
-			{% block content %} {% if output is string %}
-			<h1>{{ output }}</h1>
-			{% elif output is iterable%}
-			<h1>{{ output[0] }}</h1>
-			{% if output | length > 1 %}
-			<h1>Or</h1>
-			<h1>{{ output[1] }}</h1>
-			{% endif %} {% else %}
-			<h1>{{ output }}</h1>
-			{% endif %} {% endblock content %}
-			<a href="{{ url_for('homepage') }}">
-				<button class="btn btn-outline-dark">Back</button>
-			</a>
+			<div class="content">
+				{% block content %} {% if n_is_fib %}
+				<div>{{ u_input }} is the {{ which }} Fibonacci number.</div>
+				<div>And...</div>
+				{% else %}
+				<div>{{ u_input }} is not a Fibonacci number.</div>
+				<div>But...</div>
+				{% endif %}
+				<div>It can be expressed as a sum of unique Fibonacci numbers.</div>
+				<div>{{ u_input }} = {{ combinations[0] }}</div>
+				{% if combinations | length > 1%}
+				<div>Or</div>
+				<div>{{ u_input }} = {{ combinations[1] }}</div>
+				{% endif %} {% endblock content %}
+				<div>Fun Fact!</div>
+				<div>
+					Fib({{ u_input }}) is
+					<p class="number">{{ fib }}</p>
+				</div>
+				<div>
+					<a href="{{ url_for('homepage') }}" class="again">
+						<button class="btn btn-outline-dark">Try Again</button>
+					</a>
+				</div>
+			</div>
 		</div>
 	</body>
 </hhtl>
