@@ -32,8 +32,9 @@
 			<h1>{{ message }}</h1>
 			{% block content %} {% if output is string %}
 			<h1>{{ output }}</h1>
-			{% elif output is iterable%} {% if output | length > 1 %}
+			{% elif output is iterable%}
 			<h1>{{ output[0] }}</h1>
+			{% if output | length > 1 %}
 			<h1>Or</h1>
 			<h1>{{ output[1] }}</h1>
 			{% endif %} {% else %}
