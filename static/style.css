@@ -25,7 +25,7 @@ body {
 	text-align: center;
 	overflow-wrap: break-word;
 	word-wrap: break-word;
-	word-break: normal;
+	word-break: break-word;
 	line-height: 2.2;
 	font-weight: 500;
 	font-size: 20px;
